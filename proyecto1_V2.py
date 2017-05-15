@@ -68,19 +68,23 @@ def minimo(A, B):
 
 def maximo(A, B): 
 	maximos = {}
+	#print(A)
+	#print(B)
 	if(len(A) >= len(B)):
-		for p in A.items():
-			if(B.get( p[0] ) != None):
-				maximos[ p[0] ] = max(p[1], B[p[0]])
+		maximos = A
+		for p in B.items():
+			if(maximos.get( p[0] ) != None):
+				maximos[ p[0] ] = max(p[1], maximos[p[0]])
 			else:
 				maximos[p[0]] = p[1]
 	else:
-		for p in B.items():
-			if(A.get( p[0] ) != None):
-				maximos[ p[0] ] = max(p[1], A[p[0]])
+		maximos = B
+		for p in A.items():
+			if(maximos.get( p[0] ) != None):
+				maximos[ p[0] ] = max(p[1], maximos[p[0]])
 			else:
 				maximos[p[0]] = p[1]
-	
+	#print(maximos)
 	return maximos
 
 def gcd(x, y):
@@ -104,13 +108,14 @@ def lcm(x, y):
 	return result
 
 
-a = 95256
-b = 432
+
+a = 1921
+b = 9639
 x = lcm(a,b)
 y = gcd(a,b)
 print("valores:    a = "+str(a) + "       b = " + str(b))
-print("maximo comun divisor: " + str(x))
-print("minimo comun multiplo: " + str(y))
+print("maximo comun divisor: " + str(y))
+print("minimo comun multiplo: " + str(x))
 print("se comprueba el teorema a*b = lcm(a,b)*gcd(a,b):   " + str(a*b) + "=" + str(x*y))
 
 
