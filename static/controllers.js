@@ -9,18 +9,21 @@ app.controller('MainCtrl', function ($scope, $http) {
     $scope.inverso = function () {
         console.warn($scope.inverso_elem)
         var pair = $scope.inverso_elem.split(',');
-        pair[0] = parseInt(pair[0])
-        pair[1] = parseInt(pair[1])
-        console.log(pair)
-        $http.post('/inverso', pair)
-            .then((res) => {
-                console.info(res.data)
-                $scope.inverse_res = res.data.data
-            })
-            .catch((e) => {
-                console.error(e)
-            })
-
+        if(pair.length > 2){
+            $scope.inverse_res = "Ingresa sólo dos elementos separados por coma"
+        }else{
+            pair[0] = parseInt(pair[0])
+            pair[1] = parseInt(pair[1])
+            console.log(pair)
+            $http.post('/inverso', pair)
+                .then((res) => {
+                    console.info(res.data)
+                    $scope.inverse_res = "Inverso: " + res.data.data;
+                })
+                .catch((e) => {
+                    console.error(e)
+                })
+        }
     }
 
     $scope.c_elem = []
