@@ -17,7 +17,7 @@ def inverso(x, mod):
 
 	return "No se encontró el inverso"
 
-
+#print(inverso(2,13))
 
 def teoremaChino(elements, modules):
 	m = 1

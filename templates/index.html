@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html ng-app="RelationsAoo">
+
+<head>
+  <title>Relations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous">
+  <style>
+    .container {
+      max-width: 800px;
+    }
+    
+    .fa-check {
+      color: green
+    }
+    
+    .fa-times {
+      color: red
+    }
+    
+    .red {
+      color: red;
+    }
+  </style>
+</head>
+
+
+<body ng-controller="MainCtrl">
+  {% raw %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <h1>Inverso</h1>
+        <br>
+        <form role="form">
+          Elementos separados por coma ( Numero, modulo ) :
+          <div class="form-group">
+            <input type="text" class="form-control" ng-model="inverso_elem" id="url-box" style="max-width: 200px;" required>
+          </div>
+          <button ng-click="inverso()" class="btn btn-default">Enviar</button>
+          <button ng-click="clearAll()" class="btn btn-info">Limpiar</button>
+
+          <div ng-show="inverse_res" class="alert alert-info" role="alert">
+            Resultado: {{inverse_res}}
+            </div>
+        </form>
+        
+      </div>
+      <div class="col-md-4">
+        <h1>Teorema chino</h1>
+        <br>
+        <form role="form">
+          
+          <div class="form-group">
+            <!--  ROW -->
+            <div class="row">
+              <div class="col-md-5">
+                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+              </div>
+              <div class="col-md-2"> MOD </div>
+              <div class="col-md-5">
+                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+              </div>
+            </div>
+            <!--  ROW -->
+            <!--  ROW -->
+            <div class="row">
+              <div class="col-md-5">
+                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+              </div>
+              <div class="col-md-2"> MOD </div>
+              <div class="col-md-5">
+                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+              </div>
+            </div>
+            <!--  ROW -->
+            <!--  ROW -->
+            <div class="row">
+              <div class="col-md-5">
+                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+              </div>
+              <div class="col-md-2"> MOD </div>
+              <div class="col-md-5">
+                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+              </div>
+            </div>
+            <!--  ROW -->
+            <!--  ROW -->
+            <div class="row">
+              <div class="col-md-5">
+                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+              </div>
+              <div class="col-md-2"> MOD </div>
+              <div class="col-md-5">
+                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+              </div>
+            </div>
+            <!--  ROW -->
+          </div>
+          <button ng-click="getResults()" class="btn btn-default">Enviar</button>
+          <button ng-click="clearAll()" class="btn btn-info">Limpiar</button>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <h1>GCD</h1>
+        <br>
+        <form role="form">
+          Elementos separados por coma:
+          <div class="form-group">
+            <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+          </div>
+
+          <button ng-click="getResults()" class="btn btn-default">Enviar</button>
+          <button ng-click="clearAll()" class="btn btn-info">Limpiar</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <br><br> {% endraw %}
+
+  <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-sanitize.js"></script>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+  <script src="{{ url_for('static', filename='controllers.js') }}"></script>
+</body>
+
+</html>
