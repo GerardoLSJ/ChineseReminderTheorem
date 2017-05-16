@@ -1,6 +1,10 @@
 app.controller('MainCtrl', function ($scope, $http) {
     console.log('MainCtrl')
     $scope.inverso_elem = []
+    $scope.inverso_clear = function () {
+        $scope.inverso_elem = []
+        $scope.inverse_res = false
+    }
 
     $scope.inverso = function () {
         console.warn($scope.inverso_elem)
@@ -21,6 +25,12 @@ app.controller('MainCtrl', function ($scope, $http) {
 
     $scope.c_elem = []
     $scope.c_mod = []
+    $scope.c_clear = function () {
+        $scope.c_elem = []
+        $scope.c_mod = []
+        $scope.chine_res = false
+    }
+
     $scope.chine_post = function () {
         console.log($scope.c_elem)
         console.log($scope.c_mod)
@@ -47,6 +57,12 @@ app.controller('MainCtrl', function ($scope, $http) {
 
 
     $scope.gcd_elem = []
+
+    $scope.gcd_clear = function () {
+        $scope.gcd_elem = []
+        $scope.gcd_res = false
+    }
+
     $scope.gcd_post = function () {
         var pair = $scope.gcd_elem.split(',');
         pair[0] = parseInt(pair[0])
@@ -54,7 +70,7 @@ app.controller('MainCtrl', function ($scope, $http) {
         $http.post('/gcd_api', pair)
             .then((res) => {
                 console.info(res.data)
-            
+
                 $scope.gcd_res = res.data.data
             })
             .catch((e) => {

@@ -40,7 +40,7 @@
             <input type="text" class="form-control" ng-model="inverso_elem" id="url-box" style="max-width: 200px;" required>
           </div>
           <button ng-click="inverso()" class="btn btn-default">Enviar</button>
-          <button ng-click="clearAll()" class="btn btn-info">Limpiar</button>
+          <button ng-click="inverso_clear()" class="btn btn-info">Limpiar</button>
 
           <div ng-show="inverse_res" class="alert alert-info" role="alert">
             Resultado: {{inverse_res}}
@@ -100,7 +100,7 @@
             <!--  ROW -->
           </div>
           <button ng-click="chine_post()" class="btn btn-default">Enviar</button>
-          <button ng-click="clearAll()" class="btn btn-info">Limpiar</button>
+          <button ng-click="c_clear()" class="btn btn-info">Limpiar</button>
 
           <div ng-show="chine_res" class="alert alert-success" role="alert">
             Resultado: {{chine_res}}
@@ -120,7 +120,7 @@
           </div>
 
           <button ng-click="gcd_post()" class="btn btn-default">Enviar</button>
-          <button ng-click="clearAll()" class="btn btn-info">Limpiar</button>
+          <button ng-click="gcd_clear()" class="btn btn-info">Limpiar</button>
 
           <div ng-show="gcd_res" class="alert alert-warning" role="alert">
             Resultado: {{gcd_res}}
