@@ -35,7 +35,7 @@
         <h1>Inverso</h1>
         <br>
         <form role="form">
-          Elementos separados por coma ( Numero, modulo ) :
+          Elementos separados por coma ( Numero, modulo ):
           <div class="form-group">
             <input type="text" class="form-control" ng-model="inverso_elem" id="url-box" style="max-width: 200px;" required>
           </div>
@@ -44,63 +44,70 @@
 
           <div ng-show="inverse_res" class="alert alert-info" role="alert">
             Resultado: {{inverse_res}}
-            </div>
+          </div>
         </form>
-        
+
       </div>
       <div class="col-md-4">
         <h1>Teorema chino</h1>
         <br>
         <form role="form">
-          
+
           <div class="form-group">
             <!--  ROW -->
             <div class="row">
               <div class="col-md-5">
-                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+                <input type="text" class="form-control" ng-model="c_elem[0]" id="url-box" style="max-width: 200px;" required>
               </div>
               <div class="col-md-2"> MOD </div>
               <div class="col-md-5">
-                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+                <input type="text" class="form-control" ng-model="c_mod[0]" id="url-box" style="max-width: 200px;" required>
               </div>
             </div>
             <!--  ROW -->
             <!--  ROW -->
             <div class="row">
               <div class="col-md-5">
-                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+                <input type="text" class="form-control" ng-model="c_elem[1]" id="url-box" style="max-width: 200px;" required>
               </div>
               <div class="col-md-2"> MOD </div>
               <div class="col-md-5">
-                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+                <input type="text" class="form-control" ng-model="c_mod[1]" id="url-box" style="max-width: 200px;" required>
               </div>
             </div>
             <!--  ROW -->
             <!--  ROW -->
             <div class="row">
               <div class="col-md-5">
-                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+                <input type="text" class="form-control" ng-model="c_elem[2]" id="url-box" style="max-width: 200px;" required>
               </div>
               <div class="col-md-2"> MOD </div>
               <div class="col-md-5">
-                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+                <input type="text" class="form-control" ng-model="c_mod[2]" id="url-box" style="max-width: 200px;" required>
               </div>
             </div>
             <!--  ROW -->
             <!--  ROW -->
             <div class="row">
               <div class="col-md-5">
-                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+                <input type="text" class="form-control" ng-model="c_elem[3]" id="url-box" style="max-width: 200px;" required>
               </div>
               <div class="col-md-2"> MOD </div>
               <div class="col-md-5">
-                <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+                <input type="text" class="form-control" ng-model="c_mod[3]" id="url-box" style="max-width: 200px;" required>
               </div>
             </div>
             <!--  ROW -->
           </div>
-          <button ng-click="getResults()" class="btn btn-default">Enviar</button>
+          <button ng-click="chine_post()" class="btn btn-default">Enviar</button>
           <button ng-click="clearAll()" class="btn btn-info">Limpiar</button>
+
+          <div ng-show="chine_res" class="alert alert-success" role="alert">
+            Resultado: {{chine_res}}
+          </div>
+          <div ng-show="chine_res_error" class="alert alert-danger" role="alert">
+            No existe para dichos elementos
+          </div>
         </form>
       </div>
       <div class="col-md-4">
@@ -109,11 +116,15 @@
         <form role="form">
           Elementos separados por coma:
           <div class="form-group">
-            <input type="text" class="form-control" ng-model="universe" id="url-box" style="max-width: 200px;" required>
+            <input type="text" class="form-control" ng-model="gcd_elem" id="url-box" style="max-width: 200px;" required>
           </div>
 
-          <button ng-click="getResults()" class="btn btn-default">Enviar</button>
+          <button ng-click="gcd_post()" class="btn btn-default">Enviar</button>
           <button ng-click="clearAll()" class="btn btn-info">Limpiar</button>
+
+          <div ng-show="gcd_res" class="alert alert-warning" role="alert">
+            Resultado: {{gcd_res}}
+          </div>
         </form>
       </div>
 

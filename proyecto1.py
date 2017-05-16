@@ -78,8 +78,8 @@ def GCD(a,b):
 		factors_p.append(pow(i,x))
 		#print(factors_p)
 
-	print(functools.reduce(mul, factors_p, 1))
-
+	return(functools.reduce(mul, factors_p, 1))
+	
 
 GCD(1921,9639)
 

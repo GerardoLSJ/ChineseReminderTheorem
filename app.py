@@ -27,5 +27,22 @@ def one():
     #inverso(data[0],data[1])
     return jsonify(data=inverso(data[0],data[1]))
 
+
+@app.route('/chine', methods=['POST'])
+def chine():
+    data  = request.get_json(force=False, silent=False, cache=False)
+    print(data) 
+    #inverso(data[0],data[1])
+    return jsonify(data=teoremaChino(data[0],data[1]))
+
+@app.route('/gcd_api', methods=['POST'])
+def gcd_api():
+    data  = request.get_json(force=False, silent=False, cache=False)
+    print(data) 
+    #inverso(data[0],data[1])
+    return jsonify(data=GCD(data[0],data[1]))
+
+
+
 if __name__ == '__main__':
     app.run()

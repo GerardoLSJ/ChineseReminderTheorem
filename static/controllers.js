@@ -2,15 +2,13 @@ app.controller('MainCtrl', function ($scope, $http) {
     console.log('MainCtrl')
     $scope.inverso_elem = []
 
-
-
     $scope.inverso = function () {
         console.warn($scope.inverso_elem)
         var pair = $scope.inverso_elem.split(',');
         pair[0] = parseInt(pair[0])
         pair[1] = parseInt(pair[1])
         console.log(pair)
-       $http.post('/inverso', pair)
+        $http.post('/inverso', pair)
             .then((res) => {
                 console.info(res.data)
                 $scope.inverse_res = res.data.data
@@ -21,62 +19,50 @@ app.controller('MainCtrl', function ($scope, $http) {
 
     }
 
+    $scope.c_elem = []
+    $scope.c_mod = []
+    $scope.chine_post = function () {
+        console.log($scope.c_elem)
+        console.log($scope.c_mod)
+        var elem = $scope.c_elem.map(Number);
+        var mod = $scope.c_mod.map(Number);
+        console.log(elem)
+        console.log(mod)
 
-
-
-
-    $scope.states = [];
-    $scope.inputBoxes = ['', ''];
-    $scope.errorBoxes = [];
-    $scope.inputCounter = 0;
-    $scope.htmlString = '';
-    $scope.universe = "1,2,3,hola"
-
-    $scope.addPair = function () {
-        $scope.inputBoxes.push('');
-        console.log($scope.inputBoxes)
-    };
-
-    $scope.getResults = function () {
-        var myJson = []
-        myJson.push($scope.universe);
-        /*
-                var universe = myJson[0].split(',')
-                if (universe.length > 6) {
-                    return alert('Menos de 6 elementos por favor')
-                }
-        */
-        angular.forEach($scope.inputBoxes, function (element) {
-            if (element) {
-                myJson.push(element);
-            }
-        });
-
-        console.info(myJson)
-
-        $http.post('/api', myJson)
+        $http.post('/chine', [elem, mod])
             .then((res) => {
                 console.info(res.data)
-                $scope.states.push(res.data.data);
+                $scope.chine_res_error = false
+
+                $scope.chine_res = res.data.data
             })
             .catch((e) => {
                 console.error(e)
+                $scope.chine_res_error = true
+                $scope.chine_res = false
+
+
             })
     }
 
-    $scope.updatedPair = function (index) {
-        //Comprueba que los elementos existen en el universo
-        var universe = $scope.universe.split(',')
-        var pair = $scope.inputBoxes[index].split(',')
-        if (universe.indexOf(pair[0]) == -1 || universe.indexOf(pair[1]) == -1) {
-            console.log("EL ELEMENTO NO EXISTE")
-            $scope.errorBoxes[index] = "Alguno de los elementos no pertenece al universo";
-        } else {
-            $scope.errorBoxes[index] = '';
-        }
-        if (pair.length > 2) {
-            $scope.errorBoxes[index] = "Ingresa sólo una pareja ordenada con el formato a,b"
-        }
+
+    $scope.gcd_elem = []
+    $scope.gcd_post = function () {
+        var pair = $scope.gcd_elem.split(',');
+        pair[0] = parseInt(pair[0])
+        pair[1] = parseInt(pair[1])
+        $http.post('/gcd_api', pair)
+            .then((res) => {
+                console.info(res.data)
+            
+                $scope.gcd_res = res.data.data
+            })
+            .catch((e) => {
+                console.error(e)
+
+
+
+            })
     }
 
     $scope.clearAll = function () {
